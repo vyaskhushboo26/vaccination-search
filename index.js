@@ -63,12 +63,21 @@ function submitForm() {
   var selectedDate = document.getElementById("date").value;
 
   if (selectedDate != "" && selectedDistrictId != -1) {
+   //pass dummy session object here
     var xmlHttpRequest = new XMLHttpRequest();
     xmlHttpRequest.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         var strResponse = this.responseText;
         console.log(strResponse);
-      }
+         var myObj = JSON.parse(strResponse);
+         if (myObj.sessions !=""){
+          renderTable(myObj);
+
+         }else {
+           alert('sessions are not avaliable');
+         }
+
+              }
   
     };
     xmlHttpRequest.open(
@@ -84,6 +93,20 @@ function submitForm() {
   } else {
     alert("fill the details");
   }
+
+}
+
+function renderTable(obj){
+  var i;
+  var str = "";
+  
+for (i in obj.sessions){
+  
+    var xTable = document.getElementById('sessiont');
+    str += '<tr><div><p>' +   obj.sessions[i].name    +'</p></div></tr>';
+    xTable.innerHTML = str;
+    console.log(str); 
+}
 }
 
 /* window.addEventListener('error', function(e) {
