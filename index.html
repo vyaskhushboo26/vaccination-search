@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="showStateInDropDown()">
+    <div class="statename">
+      <h1>Fill The Details</h1>
+      
+        <!--state-->
+        <label for="State">Select a state name:</label>
+
+        <select name="states" id="states" onchange="changeStatesInOption()">
+          <option>select here</option>
+        </select>
+        <br /><br />
+        <!--district-->
+        <label for="district">Select a districts name:</label>
+
+        <select
+          name="districts"
+          id="districts"
+          onchange="changeDistricsInOption()"
+        >
+          <option>select here</option></select
+        ><br /><br />
+        <!--date-->
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date" />
+        <br /><br />
+        <input type="submit" value="Submit" onclick="submitForm()" />
+     
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
